@@ -9,7 +9,8 @@ if (process.env.JAWSDB) {
         user: 'root',
         password: 'Pa$$w0rd',
         database: 'burgers_db',
-        port: 3306
+        port: 3306,
+        multipleStatements: true;
     });
 }
 

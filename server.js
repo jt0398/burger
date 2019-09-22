@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Sets up Express to use default folder for static files is "public"
-app.use(express.static("app/public"));
+app.use(express.static("public"));
 
 //Starts up the application on a port
 app.listen(PORT, function() {
