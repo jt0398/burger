@@ -25,7 +25,7 @@ app.use(express.static("public"));
 //Starts up the application on a port
 connection.connect(function(error) {
     if (error) {
-        console.error("error connecting: " + err.stack);
+        console.error("error connecting: " + error.stack);
         return;
     }
 
