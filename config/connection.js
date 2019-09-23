@@ -1,6 +1,7 @@
 var mysql = require("mysql");
 var connection;
 
+/*MySQL configuration*/
 if (process.env.JAWSDB) {
     connection = mysql.createPool(process.env.JAWSDB);
 } else {
@@ -13,7 +14,5 @@ if (process.env.JAWSDB) {
         multipleStatements: true
     });
 }
-
-//connection.connect();
 
 module.exports = connection;

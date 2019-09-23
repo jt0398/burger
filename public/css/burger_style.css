@@ -2,16 +2,25 @@ body {
     background-color: #f5c918;
 }
 
+
+/*Header Logo*/
+
 #logo img {
     display: block;
     margin: 0 auto;
     width: 25%
 }
 
+
+/*Header Tile*/
+
 #logo h3 {
     color: red;
     text-align: center;
 }
+
+
+/*Uneaten Burger*/
 
 .whole {
     padding: 10px;
@@ -22,6 +31,9 @@ body {
     width: 350px;
 }
 
+
+/*Devoured Burger*/
+
 .devoured {
     padding: 10px;
     border-radius: 5%;
@@ -31,6 +43,9 @@ body {
     color: gray;
     width: 350px;
 }
+
+
+/*Submit Button*/
 
 #submit-btn {
     display: block;

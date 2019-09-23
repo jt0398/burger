@@ -1,9 +1,10 @@
-const connection = require("./connection");
+const connection = require("./connection"); //MySQL configuration
 
 var ORM = {
     selectAll: async function() {
         return new Promise(resolve => {
 
+            //Sends two queries - one to select uneaten burger and another for the devoured burger list
             connection.query("SELECT * FROM burgers WHERE devoured = false; SELECT * FROM burgers WHERE devoured = true;", function(error, results) {
                 if (error) throw error;
 
@@ -16,6 +17,7 @@ var ORM = {
     insertOne: async function(burgerName) {
         return new Promise(resolve => {
 
+            //Inserts a new burger name and returns that same record
             connection.query("INSERT INTO burgers (burger_name) VALUES (?); SELECT * FROM burgers WHERE id=(SELECT LAST_INSERT_ID());", [burgerName], function(error, results) {
                 if (error) throw error;
 
@@ -29,6 +31,7 @@ var ORM = {
     updateOne: async function(id) {
         return new Promise(resolve => {
 
+            //Updates specific burger devoured property to true 
             connection.query("UPDATE burgers SET devoured = true WHERE id = ?", [id], function(error, results) {
                 if (error) throw error;
 
