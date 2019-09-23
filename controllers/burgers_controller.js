@@ -15,7 +15,7 @@ router.post("/api/burgers", async function(req, res) {
     const singleBurger = await burger.create(req.body.burgerName).catch(error => {
         res.sendStatus(400); //Sends a bad request error to the client if there's a SQL error
     });
-    res.json(singleBurger);
+    res.sendStatus(201);
 });
 
 //Handles PUT request from this path and update the status of the burger

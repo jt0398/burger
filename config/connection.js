@@ -1,8 +1,9 @@
 var mysql = require("mysql");
-var connection;
 
-/*MySQL configuration*/
-if (process.env.JAWSDB) {
+/*MySQL configuration
+https://devcenter.heroku.com/articles/jawsdb
+*/
+if (process.env.JAWSDB_URL) {
     connection = mysql.createPool(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createPool({

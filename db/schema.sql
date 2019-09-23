@@ -7,5 +7,6 @@ USE burgers_db;
 CREATE TABLE burgers(
 	id INT NOT NULL auto_increment primary key,
     burger_name VARCHAR(100) NOT NULL,
-    devoured BOOLEAN DEFAULT false
+    devoured BOOLEAN DEFAULT false,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
