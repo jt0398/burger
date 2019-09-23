@@ -20,7 +20,7 @@ app.use(express.json());
 //Sets up Express to use default folder for static files is "public"
 app.use(express.static("public"));
 
-app.use(routes);
+//app.use(routes);
 
 //Starts up the application on a port
 connection.connect(function(error) {
@@ -32,4 +32,6 @@ connection.connect(function(error) {
     app.listen(PORT, function() {
         console.log("Server is listening on http://localhost:" + PORT);
     });
+
+    routes = new routes(app);
 });
