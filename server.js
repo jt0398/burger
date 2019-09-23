@@ -7,7 +7,6 @@ var path = require("path");
 var app = express(); //Server or app object
 
 var PORT = process.env.PORT | 3000; //Port the server listens on
-var PORT = process.env.PORT | 3000; //Port the server listens on
 
 //Sets main handlebar as the layout
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

@@ -9,8 +9,9 @@ module.exports = function(app) {
     //Handles request from the root and sends all burger back to the client
     app.get("/", async function(req, res) {
         console.log("burger.findAll");
-        const burgers = await burger.findAll().catch(error => { console.log(error); });
-        res.render("index", { wholeBurgers: burgers[0], devouredBurgers: burgers[1] });
+        /*const burgers = await burger.findAll().catch(error => { console.log(error); });
+        res.render("index", { wholeBurgers: burgers[0], devouredBurgers: burgers[1] });*/
+        res.send("../public/index.html");
     });
 
     //Handles POST request from this path and create new burger
