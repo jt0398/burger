@@ -7,6 +7,7 @@ var path = require("path");
 var app = express(); //Server or app object
 
 var PORT = process.env.PORT | 3000; //Port the server listens on
+var PORT = process.env.PORT | 3000; //Port the server listens on
 
 //Sets main handlebar as the layout
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -31,7 +32,7 @@ connection.connect(function(error) {
         return;
     }
 
-    app.listen(PORT, function() {
+    app.listen(PORT, "0.0.0.0", function() {
         console.log("Server is listening on http://localhost:" + PORT);
     });
 
