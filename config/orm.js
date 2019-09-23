@@ -1,4 +1,4 @@
-const connection = require("./connection"); //MySQL configuration
+const connection = require("./connection"); //MySQL connection
 
 var ORM = {
     selectAll: async function() {

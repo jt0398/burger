@@ -1,6 +1,7 @@
 var express = require("express"); //Express module for server
 var exphbs = require("express-handlebars"); //Express handlebars
 var routes = require("./controllers/burgers_controller");
+const connection = require("./config/connection"); //MySQL connection
 
 var app = express(); //Server or app object
 
@@ -22,6 +23,13 @@ app.use(express.static("public"));
 app.use(routes);
 
 //Starts up the application on a port
-app.listen(PORT, function() {
-    console.log("Server is listening on http://localhost:" + PORT);
+connection.connect(function(error) {
+    if (error) {
+        console.error("error connecting: " + err.stack);
+        return;
+    }
+
+    app.listen(PORT, function() {
+        console.log("Server is listening on http://localhost:" + PORT);
+    });
 });

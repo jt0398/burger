@@ -4,9 +4,9 @@ var mysql = require("mysql");
 https://devcenter.heroku.com/articles/jawsdb
 */
 if (process.env.JAWSDB_URL) {
-    connection = mysql.createPool(process.env.JAWSDB_URL);
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-    connection = mysql.createPool({
+    connection = mysql.createConnection({
         host: "localhost",
         user: "root",
         password: "Pa$$w0rd",
