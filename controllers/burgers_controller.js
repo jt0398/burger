@@ -10,7 +10,7 @@ router.get("/", async function(req, res) {
 });
 
 router.post("/api/burgers", async function(req, res) {
-    const singleBurger = await burger.create("test2").catch(error => {
+    const singleBurger = await burger.create(req.body.burgerName).catch(error => {
         res.sendStatus(400);
     });
     res.json(singleBurger);
