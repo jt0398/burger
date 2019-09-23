@@ -1,35 +1,10 @@
 const connection = require("./connection");
 
 var ORM = {
-    selectAll: function() {
+    selectAll: async function() {
         return new Promise(resolve => {
 
-            pool.query("SELECT * FROM burgers", function(error, results) {
-                if (error) throw error;
-
-                resolve(results[0]);
-            });
-
-        });
-    },
-
-    insertOne: function(burgerName) {
-        return new Promise(resolve => {
-
-            pool.query("INSERT INTO burgers (burger_name) VALUES (?); SELECT * FROM burgers WHERE id=(SELECT LAST_INSERT_ID());", [burgerName], function(error, results) {
-                if (error) throw error;
-
-                console.log();
-                resolve(results[0]);
-            });
-
-        });
-    },
-
-    updateOne: function(id) {
-        return new Promise(resolve => {
-
-            pool.query("UPDATE burgers SET devoured = true WHERE id = ?", [id], function(error, results) {
+            connection.query("SELECT * FROM burgers WHERE devoured = false; SELECT * FROM burgers WHERE devoured = true;", function(error, results) {
                 if (error) throw error;
 
                 resolve(results);
@@ -38,9 +13,34 @@ var ORM = {
         });
     },
 
-    close: function() {
+    insertOne: async function(burgerName) {
+        return new Promise(resolve => {
+
+            connection.query("INSERT INTO burgers (burger_name) VALUES (?); SELECT * FROM burgers WHERE id=(SELECT LAST_INSERT_ID());", [burgerName], function(error, results) {
+                if (error) throw error;
+
+                console.log();
+                resolve(results);
+            });
+
+        });
+    },
+
+    updateOne: async function(id) {
+        return new Promise(resolve => {
+
+            connection.query("UPDATE burgers SET devoured = true WHERE id = ?", [id], function(error, results) {
+                if (error) throw error;
+
+                resolve(results);
+            });
+
+        });
+    },
+
+    close: async function() {
         return new Promise()(resolve => {
-            pool.end(function(error) {
+            connection.end(function(error) {
 
             });
         });

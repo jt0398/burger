@@ -1,0 +1,29 @@
+<div class="float-left mr-5 mt-5 align-top">
+    {{#each wholeBurgers}}
+    <div class="float-left whole mr-5">
+        {{this.id}}.  {{this.burger_name}} 
+    </div>
+    <div class="float-left">
+        <button class="btn btn-primary devour-it-btn">Devour It</button>  
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    {{/each}}
+</div>
+<div class="float-left mt-5 align-top">
+    {{#each devouredBurgers}}
+    <div class="devoured">
+        {{this.id}}. {{this.burger_name}}
+    </div>
+    {{/each}}
+</div>
+
+<div class="clearfix">&nbsp;</div>
+<div class="mx-auto w-75">
+    <form class="needs-validation">
+        <div class="form-group">
+            <textarea id="burgerName" name="burgerName" class="form-control" maxlength="90" required></textarea>
+            <div class="invalid-feedback">Required</div>
+        </div>
+        <button class="btn btn-secondary" id="submit-btn">Submit</button>  
+    </form>
+</div>

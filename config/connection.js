@@ -5,13 +5,15 @@ if (process.env.JAWSDB) {
     connection = mysql.createPool(process.env.JAWSDB);
 } else {
     connection = mysql.createPool({
-        host: 'localhost',
-        user: 'root',
-        password: 'Pa$$w0rd',
-        database: 'burgers_db',
+        host: "localhost",
+        user: "root",
+        password: "Pa$$w0rd",
+        database: "burgers_db",
         port: 3306,
-        multipleStatements: true;
+        multipleStatements: true
     });
 }
 
-modules.export = connection;
+//connection.connect();
+
+module.exports = connection;

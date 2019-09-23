@@ -1,5 +1,6 @@
 var express = require("express"); //Express module for server
 var exphbs = require("express-handlebars"); //Express handlebars
+var routes = require("./controllers/burgers_controller");
 
 var app = express(); //Server or app object
 
@@ -17,6 +18,8 @@ app.use(express.json());
 
 //Sets up Express to use default folder for static files is "public"
 app.use(express.static("public"));
+
+app.use(routes);
 
 //Starts up the application on a port
 app.listen(PORT, function() {

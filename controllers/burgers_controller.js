@@ -4,16 +4,21 @@ var burger = require("../models/burger");
 
 var router = express.Router();
 
-router.get("/", function(req, res) {
-    const burgers = burger.findAll();
-    res.json(burgers);
+router.get("/", async function(req, res) {
+    const burgers = await burger.findAll().catch(error => { console.log(error); });
+    res.render("index", { wholeBurgers: burgers[0], devouredBurgers: burgers[1] });
 });
 
-router.post("/api/burgers", function(req, res) {
-    const singleBurger = burger.create(req.body.burgerName);
+router.post("/api/burgers", async function(req, res) {
+    const singleBurger = await burger.create("test2").catch(error => {
+        res.sendStatus(400);
+    });
     res.json(singleBurger);
 });
 
-router.put("/api/burgers/:id", function(req, res) {
-    const result = burger.update(req.params.id);
+router.put("/api/burgers/:id", async function(req, res) {
+    const result = await burger.update(req.params.id).catch(error => { console.log(error); });
+    res.sendStatus(200);
 });
+
+module.exports = router;
