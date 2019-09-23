@@ -3,14 +3,14 @@ const connection = require("./connection"); //MySQL connection
 var ORM = {
     selectAll: async function() {
         return new Promise(resolve => {
-
+            console.log("orm.selectAll");
             //Sends two queries - one to select uneaten burger and another for the devoured burger list
             connection.query("SELECT * FROM burgers WHERE devoured = false;", function(error, results) {
                 if (error) throw error;
-
+                console.log(results);
                 connection.query("SELECT * FROM burgers WHERE devoured = true;", function(error, result2) {
                     if (error) throw error;
-
+                    console.log(result2);
                     resolve([results, result2]);
                 });
             });
