@@ -3,7 +3,7 @@ var connection;
 
 /*MySQL configuration*/
 if (process.env.JAWSDB) {
-    connection = mysql.createPool(process.env.JAWSDB);
+    connection = mysql.createPool(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createPool({
         host: "localhost",
