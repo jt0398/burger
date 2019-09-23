@@ -18,7 +18,7 @@ $(document).ready(function() {
     $(".devour-it-btn").on("click", function() {
         var id = $(this).data("id");
 
-        $.ajax("/api/burgers" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "PUT"
         }).then(
             function() {
