@@ -3,6 +3,15 @@ $(document).ready(function() {
     $("#submit-btn").on("click", function(e) {
         e.preventDefault();
 
+        //Gets form object
+        let form = $(".needs-validation")[0];
+
+        //Prevent form from being submitted if there's a validation error
+        if (form.checkValidity() === false) {
+            form.classList.add("was-validated");
+            return;
+        }
+
         //Get burger name from the form control
         let newBurger = {
             burgerName: $("#burgerName").val().trim()
